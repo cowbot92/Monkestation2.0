@@ -8,8 +8,6 @@ type BorgShakerContext = {
   sodas: Reagent[];
   alcohols: Reagent[];
   selectedReagent: string;
-  reagentSearchContainer: ContainerPreference;
-  apparatusHasItem: boolean;
 };
 
 type Reagent = {
@@ -18,13 +16,8 @@ type Reagent = {
   description: string;
 };
 
-enum ContainerPreference {
-  BeverageApparatus = 'beverage_apparatus',
-  InternalBeaker = 'internal_beaker',
-}
-
 export const BorgShaker = (props) => {
-  const { act, data } = useBackend<BorgShakerContext>();
+  const { data } = useBackend<BorgShakerContext>();
   const { theme, minVolume, sodas, alcohols, selectedReagent } = data;
 
   const dynamicHeight =
@@ -35,56 +28,7 @@ export const BorgShaker = (props) => {
   return (
     <Window width={650} height={dynamicHeight} theme={theme}>
       <Window.Content>
-        <Section
-          title={'Non-Alcoholic'}
-          buttons={
-            <>
-              <Button
-                icon="book"
-                content={'Reaction search'}
-                disabled={
-                  data.reagentSearchContainer !==
-                    ContainerPreference.InternalBeaker && !data.apparatusHasItem
-                }
-                tooltip={
-                  'Look up recipes and reagents! Choose a container source'
-                }
-                tooltipPosition="bottom-start"
-                onClick={() => act('reaction_lookup')}
-              />
-              <Button
-                icon="flask"
-                color={
-                  data.reagentSearchContainer ===
-                  ContainerPreference.InternalBeaker
-                    ? 'green'
-                    : 'default'
-                }
-                tooltip="Search source: Internal Beaker"
-                onClick={() => {
-                  act('set_preferred_container', {
-                    value: ContainerPreference.InternalBeaker,
-                  });
-                }}
-              />
-              <Button
-                icon="vial"
-                tooltip="Search source: Beverage Apparatus"
-                color={
-                  data.reagentSearchContainer ===
-                  ContainerPreference.BeverageApparatus
-                    ? 'green'
-                    : 'default'
-                }
-                onClick={() => {
-                  act('set_preferred_container', {
-                    value: ContainerPreference.BeverageApparatus,
-                  });
-                }}
-              />
-            </>
-          }
-        >
+        <Section title={'Non-Alcoholic'}>
           <ReagentDisplay
             reagents={sodas}
             selected={selectedReagent}
