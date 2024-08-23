@@ -163,18 +163,14 @@ SUBSYSTEM_DEF(demo)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/demo/fire()
-	var/marked_new_len = length(src.marked_new)
-	var/marked_dirty_len = length(src.marked_dirty)
-	var/marked_turfs_len = length(src.marked_turfs)
-	var/del_list_len = length(del_list)
-	if(!marked_new_len && !marked_dirty_len && !marked_turfs_len && !del_list_len)
+	if(!src.marked_new.len && !src.marked_dirty.len && !src.marked_turfs.len && !src.del_list.len)
 		return // nothing to do
 
-	last_queued = marked_new_len + marked_dirty_len + marked_turfs_len
+	last_queued = src.marked_new.len + src.marked_dirty.len + src.marked_turfs.len
 	last_completed = 0
 
 	write_time()
-	if(del_list_len)
+	if(src.del_list.len)
 		var/s = "del [jointext(src.del_list, ",")]\n" // if I don't do it like this I get "incorrect number of macro arguments" because byond is stupid and sucks
 		WRITE_LOG_NO_FORMAT(GLOB.demo_log, s)
 	src.del_list.Cut()
@@ -183,11 +179,11 @@ SUBSYSTEM_DEF(demo)
 
 	var/list/marked_dirty = src.marked_dirty
 	var/list/dirty_updates = list()
-	while(length(marked_dirty))
+	while(marked_dirty.len)
 		last_completed++
-		var/atom/movable/M = marked_dirty[length(marked_dirty)]
+		var/atom/movable/M = marked_dirty[marked_dirty.len]
 		marked_dirty.len--
-		if(QDELETED(M))
+		if(M.gc_destroyed || !M)
 			continue
 		if(M.loc == M.demo_last_loc)
 			continue
@@ -210,7 +206,7 @@ SUBSYSTEM_DEF(demo)
 		if(MC_TICK_CHECK)
 			canceled = TRUE
 			break
-	if(length(dirty_updates))
+	if(dirty_updates.len)
 		var/s = "update [jointext(dirty_updates, ",")]\n"
 		WRITE_LOG_NO_FORMAT(GLOB.demo_log, s)
 	if(canceled)
@@ -219,11 +215,11 @@ SUBSYSTEM_DEF(demo)
 
 	var/list/marked_new = src.marked_new
 	var/list/new_updates = list()
-	while(length(marked_new))
+	while(marked_new.len)
 		last_completed++
-		var/atom/movable/M = marked_new[length(marked_new)]
+		var/atom/movable/M = marked_new[marked_new.len]
 		marked_new.len--
-		if(QDELETED(M))
+		if(M.gc_destroyed || !M)
 			continue
 		var/loc_string = "null"
 		if(isturf(M.loc))
@@ -235,7 +231,7 @@ SUBSYSTEM_DEF(demo)
 		if(MC_TICK_CHECK)
 			canceled = TRUE
 			break
-	if(length(new_updates))
+	if(new_updates.len)
 		var/s = "new [jointext(new_updates, ",")]\n"
 		WRITE_LOG_NO_FORMAT(GLOB.demo_log, s)
 	if(canceled)
@@ -244,9 +240,9 @@ SUBSYSTEM_DEF(demo)
 
 	var/list/marked_turfs = src.marked_turfs
 	var/list/turf_updates = list()
-	while(length(marked_turfs))
+	while(marked_turfs.len)
 		last_completed++
-		var/turf/T = marked_turfs[length(marked_turfs)]
+		var/turf/T = marked_turfs[marked_turfs.len]
 		marked_turfs.len--
 		if(T && T.appearance != T.demo_last_appearance)
 			turf_updates += "([T.x],[T.y],[T.z])=[encode_appearance(T.appearance, T.demo_last_appearance)]"
@@ -254,7 +250,7 @@ SUBSYSTEM_DEF(demo)
 			if(MC_TICK_CHECK)
 				canceled = TRUE
 				break
-	if(length(turf_updates))
+	if(turf_updates.len)
 		var/s = "turf [jointext(turf_updates, ",")]\n"
 		WRITE_LOG_NO_FORMAT(GLOB.demo_log, s)
 	if(canceled)
@@ -423,45 +419,23 @@ SUBSYSTEM_DEF(demo)
 	msg += "}"
 	return ..()
 
-/datum/controller/subsystem/demo/proc/mark_turf(turf/turf)
+/datum/controller/subsystem/demo/proc/mark_turf(turf/T)
 	if(!can_fire)
 		return
-	if(isturf(turf))
+	if(!isturf(T))
 		return
-	marked_turfs[turf] = TRUE
-
-/datum/controller/subsystem/demo/proc/mark_multiple_turfs(list/turf/turf_list)
-	if(!can_fire)
-		return
-	if(!islist(turf_list))
-		return
-	for(var/turf in turf_list)
-		if(!isturf(turf))
-			continue
-		marked_turfs[turf] = TRUE
+	marked_turfs[T] = TRUE
 
 /datum/controller/subsystem/demo/proc/mark_new(atom/movable/M)
 	if(!can_fire)
 		return
 	if(!isobj(M) && !ismob(M))
 		return
-	if(QDELING(M))
+	if(M.gc_destroyed)
 		return
 	marked_new[M] = TRUE
 	if(marked_dirty[M])
 		marked_dirty -= M
-
-/datum/controller/subsystem/demo/proc/mark_multiple_new(list/atom/atom_list)
-	if(!can_fire)
-		return
-	for(var/atom/atom as anything in atom_list)
-		if(!isobj(atom) && !ismob(atom))
-			continue
-		if(QDELING(atom))
-			continue
-		marked_new[atom] = TRUE
-		if(marked_dirty[atom])
-			marked_dirty -= atom
 
 // I can't wait for when TG ports this and they make this a #define macro.
 /datum/controller/subsystem/demo/proc/mark_dirty(atom/movable/M)
@@ -469,21 +443,10 @@ SUBSYSTEM_DEF(demo)
 		return
 	if(!isobj(M) && !ismob(M))
 		return
-	if(QDELING(M))
+	if(M.gc_destroyed)
 		return
 	if(!marked_new[M])
 		marked_dirty[M] = TRUE
-
-/datum/controller/subsystem/demo/proc/mark_multiple_dirty(list/atom/movable/dirty_list)
-	if(!can_fire)
-		return
-	for(var/atom/movable/dirty as anything in dirty_list)
-		if(!isobj(dirty) && !ismob(dirty))
-			continue
-		if(QDELING(dirty))
-			continue
-		if(!marked_new[dirty])
-			marked_dirty[dirty] = TRUE
 
 /datum/controller/subsystem/demo/proc/mark_destroyed(atom/movable/M)
 	if(!can_fire)
