@@ -8,6 +8,13 @@
 #define TRAITOR_FACTION_GORLEX "gorlex marauders"
 #define TRAITOR_FACTION_SELF "self"
 #define TRAITOR_FACTION_BOSYN "bosyn_powell_front"
+#define TRAITOR_FACTION_ANIMAL "animal rights consortium"
+#define TRAITOR_FACTION_BEE "bee liberation front"
+#define TRAITOR_FACTION_EVIL "champions of evil"
+#define TRAITOR_FACTION_NTIAA "nanotrasen internal affairs"
+#define TRAITOR_FACTION_MI13 "mi13"
+#define TRAITOR_FACTION_TIGER_COOP "Tiger Cooperative"
+#define TRAITOR_FACTION_ASHEN_FORGE "Ashen Forge"
 
 /// If this backstory involves being forced into the job
 #define TRAITOR_MOTIVATION_FORCED "Forced Into It"

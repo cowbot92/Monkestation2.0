@@ -77,3 +77,59 @@
 	Eclipsed by the organizations we've helped form, you must revitalize our legacy. Make sure to remember: Actions speak louder than words."
 	key = TRAITOR_FACTION_BOSYN
 	faction_theme = PDA_THEME_BOSYN
+
+/datum/traitor_faction/animal_rights_consortium
+	name = "Animal Rights Consortium"
+	employer_name = "Brother Bear"
+	description = "You've been employed by a group looking for one thing- equal rights for all animals. From the smallest monkey to the largest dragon. \n\
+	Though often thought of as a joke, their mission is real, and now it's yours."
+	key = TRAITOR_FACTION_ANIMAL
+	faction_theme = PDA_THEME_SYNDICATE
+
+/datum/traitor_faction/bee_liberation_front
+	name = "Bee Liberation Front"
+	employer_name = "Queen Of All That Glitters, Honey B. Lovely The XIVth"
+	description = "You're an agent in the Queen's Royal army. A busy little bee on all levels except physical, you live to serve her majesty and will do anything for her praise.\n\
+	The hive has many needs, and you're here to ensure those needs are fulfilled."
+	key = TRAITOR_FACTION_BEE
+	faction_theme = PDA_THEME_SYNDICATE
+
+/datum/traitor_faction/champions_of_evil
+	name = "Champions Of Evil"
+	employer_name = "The Council Of Evil"
+	description = "You've chosen to work for the Council Of Evil, a self-claimed group of the vilest, nastiest, evilest villains around. Members of their group range from Super Villains with freezing rayguns, to postal workers with a mission.\n\
+	This is your big chance, go and show the world how evil you truly are."
+	key = TRAITOR_FACTION_EVIL
+	faction_theme = PDA_THEME_SYNDICATE
+
+/datum/traitor_faction/nt_internal_affairs
+	name = "Nanotrasen Internal Affairs"
+	employer_name = "Handler J"
+	description = "You've been employed by NT's Internal Affairs, Supposedly. If you're caught, they do not know you, have never known you, and will never know you. \n\
+	Using stolen syndicate technology, your job is to do everything and anything asked of you, even if it means blowing up the entire station."
+	key = TRAITOR_FACTION_NTIAA
+	faction_theme = PDA_THEME_NTOS
+
+/datum/traitor_faction/british
+	name = "MI13"
+	employer_name = "Vice Admiral Sir Miles Messervy KCMG"
+	description = "You've been hired by MI13, an old earth orginization of vast power and influence. Preferring style, luxury, and class above all else, this posh orginization is selective. \n\
+	MI13 only cares about one thing- whether you complete your objectives or die trying, do it as stylishly as possible."
+	key = TRAITOR_FACTION_MI13
+	faction_theme = PDA_THEME_SYNDICATE
+
+/datum/traitor_faction/tiger_coop
+	name = "Tiger Cooperative"
+	employer_name = "Third Underboss, Siberian"
+	description = "Welcome to the Tiger Cooperative. We serve one goal, one cause, one singular mission. To get as strong as possible. Through intelligence, strength of body, or weapons of mass destruction. \n\
+	Your mission today is to obtain strenth. Become strong."
+	key = TRAITOR_FACTION_TIGER_COOP
+	faction_theme = PDA_THEME_SYNDICATE
+
+/datum/traitor_faction/ashen_forge
+	name = "Ashen Forge"
+	employer_name = "Brother Steele, First Of His Hammer"
+	description = "Good day to you, we hope this missive reaches you. The Ashen Forge is a brotherhood of likeminded individuals who wish to be born anew through the fires of battle. \n\
+	Their leader, betrayed by NT holds a deep seeded grudge, and will put forth his agents of feverous valour to take on any mission against them, even the most insane, impossible, or suicidal."
+	key = TRAITOR_FACTION_TIGER_COOP
+	faction_theme = PDA_THEME_SYNDICATE
