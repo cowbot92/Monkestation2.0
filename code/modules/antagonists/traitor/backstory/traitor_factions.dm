@@ -42,7 +42,7 @@
 	name = "Cybersun Industries"
 	employer_name = "Mr. Bright Eyes"
 	description = "You're an agent of Cybersun Industries, a prominent player in The Syndicate, and Nanotrasen's biggest competitor in cutting-edge robotics and cybernetics.\n\
-   	Apart from any personal vendettas or debt you might owe, you may have been enticed with the promise of augments, enhancements, or life extending medical procedures.\n\ That is, if you succeed..."
+	Apart from any personal vendettas or debt you might owe, you may have been enticed with the promise of augments, enhancements, or life extending medical procedures.\n\ That is, if you succeed..."
 	key = TRAITOR_FACTION_CYBERSUN
 	faction_theme = PDA_THEME_CYBER
 
