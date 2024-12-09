@@ -8,7 +8,7 @@
 //@use 'sass:map';
 
 //palette
-$cyan: #5EDBA5;
+$cyan: #5edba5;
 $pink: #ed12f5;
 $orange: #ff9900;
 $purple: #463191;
@@ -28,41 +28,46 @@ $scrollbar-color-multiplier: 0.5;
 );
 
 @use '../base.scss' with (
-  $color-bg: rgba(194, 184, 46, 0.555),
-  $color-bg-grad-spread: 12%,
-  //$border-radius: 0,
-);
-
+    $color-bg: rgba(194, 184, 46, 0.555),
+    $color-bg-grad-spread: 12%,
+    //$border-radius: 0,
+  );
 
 .theme-waffle_co {
   // Atomic classes
-  @include meta.load-css('../atomic/color.scss', $with: (
-  ));
+  @include meta.load-css('../atomic/color.scss', $with: ());
 
   // Components
-  @include meta.load-css('../components/Button.scss', $with: (
-    'color-default': pink,
-    'color-transparent-text': rgba(227, 240, 255, 0.75),
-    'color-disabled': #363636,
-    'color-selected': #465899,
-    'color-caution': rgba(194, 184, 46, 0.555),
-  ));
-  @include meta.load-css('../components/ProgressBar.scss', $with: (
-    'color-default-fill': rgb(255, 132, 153, 0.75),
-  ));
-  @include meta.load-css('../components/Section.scss', $with: (
-    'background-color': rgba(255, 132, 153, 0.74),
-  ));
-  @include meta.load-css('../components/Tooltip.scss', $with: (
-    'background-color': rgba(255, 251, 0, 0.75),
-  ));
+  @include meta.load-css(
+    '../components/Button.scss',
+    $with: (
+      'color-default': pink,
+      'color-transparent-text': rgba(227, 240, 255, 0.75),
+      'color-disabled': #363636,
+      'color-selected': #465899,
+      'color-caution': rgba(194, 184, 46, 0.555)
+    )
+  );
+  @include meta.load-css(
+    '../components/ProgressBar.scss',
+    $with: ('color-default-fill': rgb(255, 132, 153, 0.75))
+  );
+  @include meta.load-css(
+    '../components/Section.scss',
+    $with: ('background-color': rgba(255, 132, 153, 0.74))
+  );
+  @include meta.load-css(
+    '../components/Tooltip.scss',
+    $with: ('background-color': rgba(255, 251, 0, 0.75))
+  );
 
   // Layouts
   @include meta.load-css('../layouts/Layout.scss');
   @include meta.load-css('../layouts/Window.scss');
-  @include meta.load-css('../layouts/TitleBar.scss', $with: (
-    'background-color': rgb(255, 132, 153, 0.75),
-  ));
+  @include meta.load-css(
+    '../layouts/TitleBar.scss',
+    $with: ('background-color': rgb(255, 132, 153, 0.75))
+  );
 
   .Section {
     color: black;
@@ -87,26 +92,33 @@ $scrollbar-color-multiplier: 0.5;
     // Fancy scrollbar
     scrollbar-base-color: color.scale(
       #454255,
-      $lightness: -25% * $scrollbar-color-multiplier);
+      $lightness: -25% * $scrollbar-color-multiplier
+    );
     scrollbar-face-color: color.scale(
       #454255,
-      $lightness: 10% * $scrollbar-color-multiplier);
+      $lightness: 10% * $scrollbar-color-multiplier
+    );
 
     scrollbar-3dlight-color: color.scale(
       rgba(194, 184, 46, 0.555),
-      $lightness: 0% * $scrollbar-color-multiplier);
+      $lightness: 0% * $scrollbar-color-multiplier
+    );
     scrollbar-highlight-color: color.scale(
       rgba(194, 184, 46, 0.555),
-      $lightness: 0% * $scrollbar-color-multiplier);
+      $lightness: 0% * $scrollbar-color-multiplier
+    );
     scrollbar-track-color: color.scale(
       rgba(194, 184, 46, 0.555),
-      $lightness: -25% * $scrollbar-color-multiplier);
-      scrollbar-arrow-color: color.scale(
+      $lightness: -25% * $scrollbar-color-multiplier
+    );
+    scrollbar-arrow-color: color.scale(
       pink,
-      $lightness: 50% * $scrollbar-color-multiplier);
+      $lightness: 50% * $scrollbar-color-multiplier
+    );
     scrollbar-shadow-color: color.scale(
       #454255,
-      $lightness: 10% * $scrollbar-color-multiplier);
+      $lightness: 10% * $scrollbar-color-multiplier
+    );
   }
   .Tab {
     color: rgb(255, 132, 153);
@@ -117,7 +129,7 @@ $scrollbar-color-multiplier: 0.5;
     background-color: rgb(255, 132, 153);
   }
   .Box {
-    outline: base.em(3px) outset #c0c0c0
+    outline: base.em(3px) outset #c0c0c0;
   }
   .Tooltip {
     color: black;
@@ -131,11 +143,9 @@ $scrollbar-color-multiplier: 0.5;
   }
   .Flex {
     color: white;
-    background-color: rgba(0, 0, 0, 0.0);
+    background-color: rgba(0, 0, 0, 0);
   }
   .BlockQuote {
     color: white;
-
   }
-
 }

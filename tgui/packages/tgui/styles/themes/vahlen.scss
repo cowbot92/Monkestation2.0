@@ -8,7 +8,7 @@
 //@use 'sass:map';
 
 //palette
-$cyan: #5EDBA5;
+$cyan: #5edba5;
 $pink: #ed12f5;
 $orange: #ff9900;
 $purple: #463191;
@@ -21,48 +21,52 @@ $scrollbar-color-multiplier: 0.5;
   $primary: black,
   $label: rgb(255, 132, 153),
   $good: rgb(241, 238, 239),
-
   $bad: red,
   // $fg-map-keys: (),
   // $bg-map-keys: (),
 );
 
 @use '../base.scss' with (
-  $color-bg: rgb(218, 212, 212),
-  $color-bg-grad-spread: 12%,
-  //$border-radius: 0,
-);
-
+    $color-bg: rgb(218, 212, 212),
+    $color-bg-grad-spread: 12%,
+    //$border-radius: 0,
+  );
 
 .theme-vahlen {
   // Atomic classes
-  @include meta.load-css('../atomic/color.scss', $with: (
-  ));
+  @include meta.load-css('../atomic/color.scss', $with: ());
 
   // Components
-  @include meta.load-css('../components/Button.scss', $with: (
-    'color-default': #0047AB,
-    'color-transparent-text': rgba(227, 240, 255, 0.75),
-    'color-disabled': #363636,
-    'color-selected': #465899,
-    'color-caution': #be6209,
-  ));
-  @include meta.load-css('../components/ProgressBar.scss', $with: (
-    'color-default-fill': #0047AB,
-  ));
-  @include meta.load-css('../components/Section.scss', $with: (
-    'background-color': rgba(29, 51, 175, 0.75),
-  ));
-  @include meta.load-css('../components/Tooltip.scss', $with: (
-    'background-color': rgba(29, 51, 175, 0.75),
-  ));
+  @include meta.load-css(
+    '../components/Button.scss',
+    $with: (
+      'color-default': #0047ab,
+      'color-transparent-text': rgba(227, 240, 255, 0.75),
+      'color-disabled': #363636,
+      'color-selected': #465899,
+      'color-caution': #be6209
+    )
+  );
+  @include meta.load-css(
+    '../components/ProgressBar.scss',
+    $with: ('color-default-fill': #0047ab)
+  );
+  @include meta.load-css(
+    '../components/Section.scss',
+    $with: ('background-color': rgba(29, 51, 175, 0.75))
+  );
+  @include meta.load-css(
+    '../components/Tooltip.scss',
+    $with: ('background-color': rgba(29, 51, 175, 0.75))
+  );
 
   // Layouts
   @include meta.load-css('../layouts/Layout.scss');
   @include meta.load-css('../layouts/Window.scss');
-  @include meta.load-css('../layouts/TitleBar.scss', $with: (
-    'background-color': rgb(29, 51, 175),
-  ));
+  @include meta.load-css(
+    '../layouts/TitleBar.scss',
+    $with: ('background-color': rgb(29, 51, 175))
+  );
 
   .Section {
     color: black;
@@ -77,34 +81,41 @@ $scrollbar-color-multiplier: 0.5;
     color: black;
   }
 
- .Layout__content {
-  background-image: url('../../assets/bg-syndicate.svg');
-}
+  .Layout__content {
+    background-image: url('../../assets/bg-syndicate.svg');
+  }
   .Layout,
   .Layout * {
     // Fancy scrollbar
     scrollbar-base-color: color.scale(
       #454255,
-      $lightness: -25% * $scrollbar-color-multiplier);
+      $lightness: -25% * $scrollbar-color-multiplier
+    );
     scrollbar-face-color: color.scale(
       #454255,
-      $lightness: 10% * $scrollbar-color-multiplier);
+      $lightness: 10% * $scrollbar-color-multiplier
+    );
 
     scrollbar-3dlight-color: color.scale(
       rgba(29, 51, 175, 0.75),
-      $lightness: 0% * $scrollbar-color-multiplier);
+      $lightness: 0% * $scrollbar-color-multiplier
+    );
     scrollbar-highlight-color: color.scale(
       rgba(29, 51, 175, 0.75),
-      $lightness: 0% * $scrollbar-color-multiplier);
+      $lightness: 0% * $scrollbar-color-multiplier
+    );
     scrollbar-track-color: color.scale(
       rgba(29, 51, 175, 0.75),
-      $lightness: -25% * $scrollbar-color-multiplier);
-      scrollbar-arrow-color: color.scale(
+      $lightness: -25% * $scrollbar-color-multiplier
+    );
+    scrollbar-arrow-color: color.scale(
       rgba(29, 51, 175, 0.75),
-      $lightness: 50% * $scrollbar-color-multiplier);
+      $lightness: 50% * $scrollbar-color-multiplier
+    );
     scrollbar-shadow-color: color.scale(
       #454255,
-      $lightness: 10% * $scrollbar-color-multiplier);
+      $lightness: 10% * $scrollbar-color-multiplier
+    );
   }
   .Tab {
     color: rgba(29, 51, 175);
@@ -115,7 +126,7 @@ $scrollbar-color-multiplier: 0.5;
     background-color: rgba(29, 51, 175, 0.75);
   }
   .Box {
-    outline: base.em(3px) outset #c0c0c0
+    outline: base.em(3px) outset #c0c0c0;
   }
   .Tooltip {
     color: black;
@@ -129,7 +140,6 @@ $scrollbar-color-multiplier: 0.5;
   }
   .Flex {
     color: white;
-    background-color: rgba(0, 0, 0, 0.0);
+    background-color: rgba(0, 0, 0, 0);
   }
-
 }

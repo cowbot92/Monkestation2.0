@@ -28,10 +28,7 @@ export const TraitorBackstoryMenu = (props) => {
     'traitor_ui_phase',
     has_faction ? 2 : 0,
   );
-  let [tabIndex, setTabIndex] = useLocalState(
-    'traitor_selected_tab',
-    1,
-  );
+  let [tabIndex, setTabIndex] = useLocalState('traitor_selected_tab', 1);
   let [selected_faction, set_selected_faction_backend] = useLocalState(
     'traitor_selected_faction',
     'independent',
@@ -192,9 +189,11 @@ const get_surrounding_factions = (faction_keys, selected_faction) => {
   return [prev_faction, next_faction];
 };
 
-const SelectFactionMenu = (
-  { set_ui_phase, set_selected_faction, selected_faction }
-) => {
+const SelectFactionMenu = ({
+  set_ui_phase,
+  set_selected_faction,
+  selected_faction,
+}) => {
   const { data } = useBackend();
   const {
     allowed_factions = [],
@@ -399,16 +398,14 @@ const MOTIVATION_ICONS = {
   Fun: 'grin-tongue-wink',
 };
 
-const SelectBackstoryMenu = (
-  {
-    set_ui_phase,
-    selected_faction,
-    set_selected_faction,
-    selected_backstory,
-    set_selected_backstory,
-    show_nav,
-  }
-) => {
+const SelectBackstoryMenu = ({
+  set_ui_phase,
+  selected_faction,
+  set_selected_faction,
+  selected_backstory,
+  set_selected_backstory,
+  show_nav,
+}) => {
   const { act, data } = useBackend();
   const {
     allowed_backstories = [],
@@ -421,10 +418,7 @@ const SelectBackstoryMenu = (
     backstory,
   } = data;
 
-  let [motivations, set_motivations] = useLocalState(
-    'traitor_motivations',
-    [],
-  );
+  let [motivations, set_motivations] = useLocalState('traitor_motivations', []);
 
   const toggle_motivation = (name) =>
     set_motivations((motivations) => {
@@ -595,17 +589,15 @@ const SelectBackstoryMenu = (
   );
 };
 
-const BackstorySection = (
-  {
-    backstory,
-    backstory_locked,
-    show_button,
-    backstory_key,
-    faction_key,
-    set_ui_phase,
-    fill,
-  }
-) => {
+const BackstorySection = ({
+  backstory,
+  backstory_locked,
+  show_button,
+  backstory_key,
+  faction_key,
+  set_ui_phase,
+  fill,
+}) => {
   const { act } = useBackend();
   return (
     <Section
