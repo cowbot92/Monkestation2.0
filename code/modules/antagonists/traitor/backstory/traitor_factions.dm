@@ -120,9 +120,9 @@
 
 /datum/traitor_faction/tiger_coop
 	name = "Tiger Cooperative"
-	employer_name = "Third Underboss, Siberian"
-	description = "Welcome to the Tiger Cooperative. We serve one goal, one cause, one singular mission. To get as strong as possible. Through intelligence, strength of body, or weapons of mass destruction. \n\
-	Your mission today is to obtain strenth. Become strong."
+	employer_name = "Father Siberian"
+	description = "Welcome to the Tiger Cooperative child. You have been given the chance to prove yourself as a true follower of the lord, and to walk in his hallowed halls at the end of days with him. \n\
+	We search for the divine, and what we all need is faith. True faith that we will be saved, and have a purpose. Several sinners, and high value artifacts have been found in this sector. Join us, and secure them."
 	key = TRAITOR_FACTION_TIGER_COOP
 	faction_theme = PDA_THEME_SYNDICATE
 
@@ -131,5 +131,5 @@
 	employer_name = "Brother Steele, First Of His Hammer"
 	description = "Good day to you, we hope this missive reaches you. The Ashen Forge is a brotherhood of likeminded individuals who wish to be born anew through the fires of battle. \n\
 	Their leader, betrayed by NT holds a deep seeded grudge, and will put forth his agents of feverous valour to take on any mission against them, even the most insane, impossible, or suicidal."
-	key = TRAITOR_FACTION_TIGER_COOP
+	key = TRAITOR_FACTION_ASHEN_FORGE
 	faction_theme = PDA_THEME_SYNDICATE
