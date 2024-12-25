@@ -6,7 +6,7 @@
 	return null
 
 /datum/antagonist/traitor/proc/add_menu_action()
-	if(info_button_ref?.resolve() != null)
+	if(!isnull(info_button_ref?.resolve()))
 		return
 	var/datum/action/antag_info/traitor_menu/menu = new(src)
 	menu.Grant(owner.current)
