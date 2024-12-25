@@ -1,7 +1,7 @@
 /// Associative list of /datum/traitor_backstory path strings to datums
-GLOBAL_LIST_INIT(traitor_backstories, generate_traitor_backstories())
+GLOBAL_LIST_INIT_TYPED(traitor_backstories, /datum/traitor_backstory, generate_traitor_backstories())
 /// Associative list of /datum/traitor_faction keys to datums
-GLOBAL_LIST_INIT(traitor_factions_to_datum, generate_traitor_factions())
+GLOBAL_LIST_INIT_TYPED(traitor_factions_to_datum, /datum/traitor_faction, generate_traitor_factions())
 GLOBAL_LIST_INIT(traitor_factions, assoc_to_keys(GLOB.traitor_factions_to_datum))
 
 /proc/generate_traitor_backstories()
