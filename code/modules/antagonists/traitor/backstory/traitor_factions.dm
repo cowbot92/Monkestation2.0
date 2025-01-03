@@ -97,7 +97,7 @@
 /datum/traitor_faction/champions_of_evil
 	name = "Champions Of Evil"
 	employer_name = "The Administrator"
-	description = "You've chosen to work for the Council Of Evil, one of the largest media conglomerates in the system, their main trade is one thing: Violence. Your jobsS while working for them will be simple.\n\
+	description = "You've chosen to work for the Champions Of Evil, one of the largest media conglomerates in the system, their main trade is one thing: Violence. Your jobsS while working for them will be simple.\n\
 	Be as violent as possible, record it for views, and sell it off to them. At the end of the day, you might just get a five digit number where you name is, and enough fame to get away with what you're about to do."
 	key = TRAITOR_FACTION_EVIL
 	faction_theme = PDA_THEME_SYNDICATE
