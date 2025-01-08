@@ -1,3 +1,5 @@
+GLOBAL_VAR_INIT(rpg_loot_items, TRUE)
+
 /// Anything you can pick up and hold.
 /obj/item
 	name = "item"

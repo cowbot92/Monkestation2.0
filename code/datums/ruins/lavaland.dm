@@ -298,3 +298,10 @@
 	allow_duplicates = FALSE
 	cost = 5
 	always_place = TRUE
+
+/datum/map_template/ruin/lavaland/yogsanvil
+	name = "Ancient Forge"
+	id = "ancientforge"
+	description = "An old, abandoned forge from another time, with only a single plushie as it's resident."
+	suffix = "lavaland_yogstation_forge.dmm"
+	cost = 5

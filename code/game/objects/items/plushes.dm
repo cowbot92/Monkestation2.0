@@ -548,6 +548,15 @@
 	attack_verb_simple = list("claw", "hiss", "bops")
 	squeak_override = list('monkestation/sound/voice/weh.ogg' = 1) // Monkestation Edit
 
+/obj/item/toy/plush/anvil
+	name = "Forge Master Lizard Plushie"
+	desc = "An adorable plushie resembling an adorable lizard. He seems to be held together by stitches and pure stress."
+	icon_state = "plush_utatul"
+	inhand_icon_state = null
+	attack_verb_continuous = list("bites", "hisses", "tail slaps")
+	attack_verb_simple = list("bite", "hiss", "tail slap")
+	squeak_override = list('sound/weapons/bite.ogg' = 1)
+
 /obj/item/toy/plush/snakeplushie
 	name = "snake plushie"
 	desc = "An adorable stuffed toy that resembles a snake. Not to be mistaken for the real thing."
