@@ -6,7 +6,7 @@
 "u" = (/turf/open/misc/asteroid/basalt/lava_land_surface,/area/lavaland/surface/outdoors)
 "v" = (/turf/closed/wall/r_wall/rust,/area/ruin/powered)
 "N" = (/obj/machinery/anvil,/turf/open/floor/plating/rust,/area/ruin/powered)
-"Q" = (/obj/item/toy/plush/lizard_plushie/anvil,/turf/open/floor/plating/rust,/area/ruin/powered)
+"Q" = (/obj/item/toy/plush/anvil,/turf/open/floor/plating/rust,/area/ruin/powered)
 
 (1,1,1) = {"
 uuuuuuuuuu
