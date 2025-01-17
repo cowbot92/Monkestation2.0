@@ -78,7 +78,7 @@ GLOBAL_LIST_INIT(rarity_weights, list(
 /datum/component/fantasy/UnregisterFromParent()
 	unmodify()
 
-/datum/component/fantasy/InheritComponent(datum/component/fantasy/newComp, original, quality, list/affixes, canFail, announce)
+/datum/component/fantasy/InheritComponent(datum/component/fantasy/newComp, original, quality, list/affixes, canFail, announce, visual_only)
 	unmodify()
 	src.rarity = randomRarity()
 	src.quality = GLOB.rarity_to_quality[src.rarity]
