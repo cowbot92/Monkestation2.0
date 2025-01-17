@@ -65,3 +65,5 @@ GLOBAL_VAR_INIT(anvil_cooldown, 1 SECONDS)
 
 /obj/machinery/anvil/proc/reset_light()
 	set_light(l_outer_range = 0, l_inner_range = 0, l_power = 0, l_color = null)
+
+#undef SUPER_CREDIT_REROLL_COST

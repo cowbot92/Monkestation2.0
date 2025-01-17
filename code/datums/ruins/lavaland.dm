@@ -303,5 +303,5 @@
 	name = "Ancient Forge"
 	id = "ancientforge"
 	description = "An old, abandoned forge from another time, with only a single plushie as it's resident."
-	suffix = "lavaland_yogstation_forge.dmm"
+	suffix = "lavaland_yogstation_forge_2.dmm"
 	cost = 5
